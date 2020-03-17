@@ -90,3 +90,11 @@ SELECT *
 FROM people
 WHERE Salary = (SELECT max(salary)
                 FROM people)
+
+
+--Вывести информацию по сотрудникам имеющих зп больше средней зп
+SELECT * 
+FROM people
+WHERE Salary > (SELECT avg(salary)
+                FROM people
+                WHERE dep='рабочий')

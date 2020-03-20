@@ -47,3 +47,8 @@ WHERE SUM
 
 
 -- Вывести список городов, в которых живут покупатели, совершившие покупку на сумму более 5к
+SELECT City
+FROM customers
+WHERE Cnum IN (SELECT Cnum
+               From orders
+               WHERE Amt > 5000)
